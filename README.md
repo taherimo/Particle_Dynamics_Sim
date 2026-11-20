@@ -10,13 +10,23 @@ The required project simulates **one particle moving in two-dimensional space** 
 
 The goal of this project is to implement a particle motion simulator using the **Velocity Verlet** method. By interacting with a pre-built "Potential Engine," you will simulate how particles behave under various force fields, focusing on the core principles of **classical mechanics**.
 
-**Key Learning Goals:**
-* ✅ Translating Newton’s equations into a numerical C simulation.
-* ✅ Implementing the Velocity Verlet integration algorithm.
-* ✅ Managing configuration files and mathematical expressions.
-* ✅ Calculating kinetic, potential, and total energy.
-* ✅ Investigating numerical stability and energy conservation.
-* ✅ Organizing, compiling, and submitting code via Git.
+By completing the project, students will practice:
+
+- ✅ Translating Newton's equations of motion into a numerical simulation.
+- ✅ Implementing the Velocity Verlet integration method in C.
+- ✅ Reading simulation settings and mathematical expressions from a configuration file.
+- ✅ Using an instructor-provided software component through its header file.
+- ✅ Calculating kinetic, potential, and total mechanical energy.
+- ✅ Investigating numerical accuracy and energy conservation.
+
+The required physical model is a single particle with mass \(m\), position \((x,y)\), and velocity \((v_x,v_y)\). It moves in a two-dimensional, time-independent conservative potential \(U(x,y)\). The force is
+
+\[
+F_x=-\frac{\partial U}{\partial x},\qquad
+F_y=-\frac{\partial U}{\partial y}.
+\]
+
+Multiple particles, particle-particle interactions, three-dimensional motion, time-dependent potentials, and non-conservative forces (such as friction) are not part of the required version. They may be considered as optional extensions.
 
 ---
 

@@ -4,7 +4,7 @@ A C programming project designed for undergraduate students of physics to explor
 
 The required project simulates **one particle moving in two-dimensional space** under a user-defined, time-independent potential energy function. The potential is entered as a mathematical expression in `resources/config.txt`; students do not need to modify the potential engine when they want to try a different supported potential.
 
----
+
 
 ## 🎯 Project Objectives
 
@@ -28,7 +28,7 @@ F_y=-\frac{\partial U}{\partial y}.
 
 Multiple particles, particle-particle interactions, three-dimensional motion, time-dependent potentials, and non-conservative forces (such as friction) are not part of the required version. They may be considered as optional extensions.
 
----
+
 
 ## 📂 2. Directory Structure
 
@@ -61,7 +61,7 @@ The starter `src/main.c` provides the overall program structure. Students must c
 The remaining starter code initializes the potential engine, runs the simulation loop, and writes the results to a CSV file. You may add helper functions or additional source files when useful.
 
 
----
+
 
 ## 📝 3. Configuration & Potential Functions
 The simulation settings and potential expression are read from `resources/config.txt`. The file is divided into sections. Each setting is written as `name = value`. Blank lines and lines beginning with `#` are comments and should be ignored by the configuration reader. Keep the potential expression on a single line.
@@ -115,7 +115,6 @@ The variables `x` and `y` in the potential expression represent the particle's *
 
 Use consistent physical units throughout the configuration. The program does not perform unit conversion. The `output/` directory must exist before the program is run.
 
-
 ### 🧪 3.2 Supported Math Syntax
 
 The potential engine supports the following expression syntax:
@@ -146,8 +145,6 @@ Expression-writing rules:
 
 Here, “user-defined” or “arbitrary” potential means any expression that can be represented using this documented syntax. The engine does not execute arbitrary C code or support every possible mathematical function.
 
----
-
 ## ⚙️ 4. Numerical Integration: Velocity Verlet
 
 Implement the **Velocity Verlet** method using a fixed time step \(\Delta t\). At the beginning of a step, the particle has position \(\mathbf r_n\), velocity \(\mathbf v_n\), and acceleration \(\mathbf a_n\).
@@ -174,8 +171,6 @@ Finally, update the velocity:
 
 Apply these equations to both the `x` and `y` components. Do not overwrite the old acceleration before it has been used to update the velocity.
 
----
-
 ## 📊 5. Expected Output
 
 The simulation must write a CSV file to the path specified by `output_file`. Include the initial state at time zero and the state after every integration step. The file should contain these columns:
@@ -193,8 +188,6 @@ K=\frac{1}{2}m(v_x^2+v_y^2),\qquad E=K+U(x,y).
 You can use the CSV file to plot the trajectory and energy profiles with Python, MATLAB, Excel, or another tool. Implementing a graphical interface in C is not required.
 
 For a time-independent conservative potential, the exact total mechanical energy is conserved. A numerical method does not generally keep the computed energy exactly constant at every step; small fluctuations are expected. Compare results obtained with different time steps and investigate how the time step affects the trajectory and energy error.
-
----
 
 ## 🚀 6. Getting Started
 
@@ -238,8 +231,6 @@ You may use Code::Blocks, Visual Studio Code, CLion, or another C development en
 4. Link the mathematical library (`libm`) if required by your compiler and platform.
 5. Set the program's working directory to the project root directory.
 
----
-
 ## ✅ 7. Testing Checklist
 
 Before submitting, check that:
@@ -251,8 +242,6 @@ Before submitting, check that:
 - Invalid expressions or mathematical evaluations are reported without crashing.
 - Total energy remains approximately constant for a time-independent conservative potential.
 - Reducing the time step gives results consistent with improved numerical accuracy.
-
----
 
 ## 📤 8. Submission & Version Control
 

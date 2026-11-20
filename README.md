@@ -19,7 +19,7 @@ By completing the project, students will practice:
 - Calculating kinetic, potential, and total mechanical energy.
 - Investigating numerical accuracy and energy conservation.
 
-The required physical model is a single particle with mass \(m\), position \((x,y)\), and velocity \((v_x,v_y)\). It moves in a two-dimensional, time-independent conservative potential \(U(x,y)\). The force is
+The required physical model is a single particle with mass $m$, position $(x,y)$, and velocity $(v_x,v_y)$. It moves in a two-dimensional, time-independent conservative potential $U(x,y)$. The force is
 
 ```math
 F_x=-\frac{\partial U}{\partial x},
@@ -107,7 +107,7 @@ The configuration entries have the following meanings:
 | `[initial_conditions]` | `x0`, `y0` | Initial position |
 | `[initial_conditions]` | `vx0`, `vy0` | Initial velocity |
 | `[parameters]` | User-defined names | Numerical constants used in the potential expression |
-| `[potential]` | `expression` | Mathematical expression defining \(U(x,y)\) |
+| `[potential]` | `expression` | Mathematical expression defining $U(x,y)$ |
 
 The variables `x` and `y` in the potential expression represent the particle's **current** position. Names declared in `[parameters]` are constant parameters. For example, `k = 2.0` allows the expression to use `k`.
 
@@ -145,7 +145,7 @@ Here, “user-defined” or “arbitrary” potential means any expression that 
 
 ## ⚙️ 4. Numerical Integration: Velocity Verlet
 
-Implement the **Velocity Verlet** method using a fixed time step \(\Delta t\). At the beginning of a step, the particle has position \(\mathbf r_n\), velocity \(\mathbf v_n\), and acceleration \(\mathbf a_n\).
+Implement the **Velocity Verlet** method using a fixed time step $\Delta t$. At the beginning of a step, the particle has position $\mathbf r_n$, velocity $\mathbf v_n$, and acceleration $\mathbf a_n$.
 
 First, update the position:
 

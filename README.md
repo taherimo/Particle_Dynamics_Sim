@@ -118,14 +118,28 @@ cd Particle_Dynamics_Sim
 You can also download your fork as a ZIP file and extract it. Keep the directory structure intact.
 
 ### 🛠 6.2 Compile & Run
+
 **Using GCC/Clang (Recommended):**
-Run this from the project root:
+
+Compile from the project root directory:
+
 ```bash
-gcc -std=c11 -Wall -Wextra -Wpedantic -I./engine src/main.c engine/potential_engine.c -o particle_sim -lm
+gcc -std=c11 -Wall -Wextra -Wpedantic -I./engine \
+    src/main.c engine/potential_engine.c -o particle_sim -lm
+```
+
+Then run:
+
+```bash
 ./particle_sim
 ```
 
+The program expects to be run from the project root so that it can find `resources/config.txt` and the relative output path. On Windows, run the generated executable as `particle_sim.exe` (or `./particle_sim.exe`, depending on the terminal).
+
 **Using an IDE (VS Code, CLion, Code::Blocks):**
+
+You may use Code::Blocks, Visual Studio Code, CLion, or another C development environment.
+
 1. Open the cloned project folder.
 2. Add `src/main.c` and `engine/potential_engine.c` to the build.
 3. Add `engine/` to the compiler's header/include search paths.

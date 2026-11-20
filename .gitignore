@@ -1,34 +1,28 @@
-# Prerequisites
+# ==========================================
+# 1. Prerequisites & Object Files
+# ==========================================
 *.d
-
-# Object files
 *.o
 *.ko
 *.obj
 *.elf
-
-# Linker output
 *.ilk
 *.map
 *.exp
-
-# Precompiled Headers
 *.gch
 *.pch
 
-# Libraries
+# ==========================================
+# 2. Libraries & Executables
+# ==========================================
 *.lib
 *.a
 *.la
 *.lo
-
-# Shared objects (inc. Windows DLLs)
 *.dll
 *.so
 *.so.*
 *.dylib
-
-# Executables
 *.exe
 *.out
 *.app
@@ -36,20 +30,60 @@
 *.x86_64
 *.hex
 
-# Debug files
+# ==========================================
+# 3. Debug & Kernel Modules
+# ==========================================
 *.dSYM/
 *.su
 *.idb
 *.pdb
-
-# Kernel Module Compile Results
 *.mod*
 *.cmd
 .tmp_versions/
 modules.order
 Module.symvers
-Mkfile.old
 dkms.conf
-
-# debug information files
 *.dwo
+
+# ==========================================
+# 4. IDE Specific Files
+# ==========================================
+
+# VS Code
+.vscode/
+!.vscode/settings.json  # اجازه دادن به تنظیمات عمومی اگر لازم بود (اختیاری)
+
+# JetBrains (CLion, PyCharm, etc.)
+.idea/
+*.iml
+
+# Code::Blocks
+*.layout
+*.depend
+*.cbp
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+
+# Eclipse
+.settings/
+.project
+.cproject
+
+# ==========================================
+# 5. Operating System Files
+# ==========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~

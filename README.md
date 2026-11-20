@@ -68,17 +68,34 @@ expression = 0.5*k*(x^2 + y^2)
 ```
 
 ### 🧪 Supported Math Syntax
-In the `[potential]` section, you can define the energy landscape using:
-* **Coordinates:** `x`, `y`
-* **Operators:** `+`, `-`, `*`, `/`, `^` (exponentiation)
-* **Functions:** `sin`, `cos`, `tan`, `exp`, `log`, `sqrt`
-* **Constants:** `pi`, `e`
-* **User Parameters:** Defined under the `[parameters]` section (e.g., `k = 2.0`).
 
-**Examples:**
-* *Harmonic Oscillator:* `0.5*k*(x^2 + y^2)`
-* *Double Well:* `a*(x^2 - b^2)^2 + 0.5*k*y^2`
-* *Periodic Potential:* `V0*(2 - cos(x) - cos(y))`
+The potential engine supports the following expression syntax:
+
+| Category | Supported syntax | Example |
+|---|---|---|
+| Coordinates | `x`, `y` | `x^2 + y^2` |
+| Arithmetic operators | `+`, `-`, `*`, `/` | `2*x - 3*y` |
+| Unary signs | Unary `+` and `-` | `-x`, `+(x+y)` |
+| Exponentiation | `^` | `x^2`, `x^0.5` |
+| Parentheses | `( ... )` | `(x+y)^2` |
+| Trigonometric functions | `sin`, `cos`, `tan` | `sin(x)*cos(y)` |
+| Exponential function | `exp` | `exp(-x^2)` |
+| Logarithm | `log` | `log(x^2+y^2)` |
+| Square root | `sqrt` | `sqrt(x^2+y^2)` |
+| Constants | `pi`, `e` | `cos(pi*x)` |
+| User parameters | Names declared in `[parameters]` | `k*x^2` |
+
+Expression-writing rules:
+
+- Write multiplication explicitly: use `2*x`, not `2x`.
+- Use `^` for exponentiation. It does not mean bitwise XOR in this expression language.
+- Exponentiation is right-associative: `x^2^3` means `x^(2^3)`.
+- Exponentiation has higher precedence than unary minus: `-x^2` means `-(x^2)`. Use `(-x)^2` to square the negative quantity.
+- Function names and built-in constants are lowercase and case-sensitive. Each listed function takes one argument in parentheses, such as `sin(x)`.
+- Use parameter names that begin with a letter or underscore and contain only letters, digits, or underscores. Names are case-sensitive. The names `x`, `y`, `pi`, `e`, and built-in function names are reserved.
+- Do not use C expressions such as `pow(x, 2)`, the `**` operator, or implicit multiplication.
+
+Here, “user-defined” or “arbitrary” potential means any expression that can be represented using this documented syntax. The engine does not execute arbitrary C code or support every possible mathematical function.
 
 ---
 

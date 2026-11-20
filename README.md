@@ -49,28 +49,6 @@ The configuration is section-based using `name = value` syntax. Blank lines and 
 
 **Example Configuration:**
 ```ini
-[simulation]
-mass = 1.0
-time_step = 0.001
-steps = 10000
-output_file = output/trajectory.csv
-
-[initial_conditions]
-x0 = 1.0
-y0 = 0.0
-vx0 = 0.0
-vy0 = 0.5
-
-[parameters]
-k = 2.0
-
-[potential]
-expression = 0.5*k*(x^2 + y^2)
-```
-
-### Example configuration
-
-```ini
 # All physical quantities must use a consistent system of units.
 
 [simulation]

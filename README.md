@@ -21,10 +21,11 @@ By completing the project, students will practice:
 
 The required physical model is a single particle with mass \(m\), position \((x,y)\), and velocity \((v_x,v_y)\). It moves in a two-dimensional, time-independent conservative potential \(U(x,y)\). The force is
 
-\[
-F_x=-\frac{\partial U}{\partial x},\qquad
+```math
+F_x=-\frac{\partial U}{\partial x},
+\qquad
 F_y=-\frac{\partial U}{\partial y}.
-\]
+```
 
 Multiple particles, particle-particle interactions, three-dimensional motion, time-dependent potentials, and non-conservative forces (such as friction) are not part of the required version. They may be considered as optional extensions.
 

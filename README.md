@@ -39,6 +39,18 @@ Particle_Dynamics_Sim/
 
 > **⚠️ Important:** Do not modify any files within the `engine/` directory. Use the provided header to interact with the potential evaluator.
 
+### What is provided and what must be implemented?
+
+The `engine/` directory contains the instructor-provided potential-expression engine. It parses the expression, evaluates the potential energy and its spatial derivatives, and returns the force. **Do not modify the files in this directory.** Use the interface declared in `potential_engine.h`.
+
+The starter `src/main.c` provides the overall program structure. Students must complete two functions:
+
+1. **`read_config()`**: Read the settings, initial conditions, parameters, and potential expression from `resources/config.txt`.
+2. **`verlet_step()`**: Implement one step of the Velocity Verlet algorithm and evaluate the force at the updated position.
+
+The remaining starter code initializes the potential engine, runs the simulation loop, and writes the results to a CSV file. You may add helper functions or additional source files when useful.
+
+
 ---
 
 ## 📝 3. Configuration & Potential Functions

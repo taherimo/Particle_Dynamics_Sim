@@ -22,10 +22,10 @@ The goal of this project is to implement a particle motion simulator using the *
 
 ```text
 Particle_Dynamics_Sim/
-├── engine/                # [Instructor Only] Core physics engine (DO NOT MODIFY)
+├── engine/                # Core physics engine (DO NOT MODIFY)
 │   ├── potential_engine.c 
 │   └── potential_engine.h 
-├── src/                   # [Student Workspace] Your implementation area
+├── src/                   # Your implementation area
 │   └── main.c             
 ├── resources/             # Simulation configuration settings
 │   └── config.txt         

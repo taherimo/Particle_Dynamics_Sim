@@ -84,23 +84,49 @@ In the `[potential]` section, you can define the energy landscape using:
 
 ## ⚙️ 4. Numerical Integration: Velocity Verlet
 
-For each time step $\Delta t$, you must implement:
-1.  $\mathbf{a}_n = \mathbf{F}(\mathbf{r}_n) / m$
-2.  $\mathbf{r}_{n+1} = \mathbf{r}_n + \mathbf{v}_n \Delta t + 0.5 \mathbf{a}_n \Delta t^2$
-3.  $\mathbf{a}_{n+1} = \mathbf{F}(\mathbf{r}_{n+1}) / m$
-4.  $\mathbf{v}_{n+1} = \mathbf{v}_n + 0.5(\mathbf{a}_n + \mathbf{a}_{n+1})\Delta t$
+Implement the **Velocity Verlet** method using a fixed time step \(\Delta t\). At the beginning of a step, the particle has position \(\mathbf r_n\), velocity \(\mathbf v_n\), and acceleration \(\mathbf a_n\).
+
+First, update the position:
+
+\[
+\mathbf r_{n+1}=\mathbf r_n+\mathbf v_n\Delta t+
+\frac{1}{2}\mathbf a_n\Delta t^2.
+\]
+
+Evaluate the force at the new position using the potential engine, then calculate the new acceleration:
+
+\[
+\mathbf a_{n+1}=\frac{\mathbf F(\mathbf r_{n+1})}{m}.
+\]
+
+Finally, update the velocity:
+
+\[
+\mathbf v_{n+1}=\mathbf v_n+
+\frac{1}{2}(\mathbf a_n+\mathbf a_{n+1})\Delta t.
+\]
+
+Apply these equations to both the `x` and `y` components. Do not overwrite the old acceleration before it has been used to update the velocity.
 
 ---
 
 ## 📊 5. Expected Output
 
-The simulation must write a `.csv` file to the path specified in `config.txt`. Each step must include:
-`step, time, x, y, vx, vy, kinetic_energy, potential_energy, total_energy`
+The simulation must write a CSV file to the path specified by `output_file`. Include the initial state at time zero and the state after every integration step. The file should contain these columns:
 
-**Validation Checklist:**
-* [ ] Does the total energy remain approximately constant?
-* [ ] Does reducing the `time_step` improve accuracy?
-* [ ] Does the program handle invalid math expressions gracefully?
+```text
+step,time,x,y,vx,vy,kinetic_energy,potential_energy,total_energy
+```
+
+The energies are
+
+\[
+K=\frac{1}{2}m(v_x^2+v_y^2),\qquad E=K+U(x,y).
+\]
+
+You can use the CSV file to plot the trajectory and energy profiles with Python, MATLAB, Excel, or another tool. Implementing a graphical interface in C is not required.
+
+For a time-independent conservative potential, the exact total mechanical energy is conserved. A numerical method does not generally keep the computed energy exactly constant at every step; small fluctuations are expected. Compare results obtained with different time steps and investigate how the time step affects the trajectory and energy error.
 
 ---
 
@@ -149,11 +175,16 @@ You may use Code::Blocks, Visual Studio Code, CLion, or another C development en
 ---
 
 ## ✅ 7. Testing Checklist
-Before submitting, ensure you have verified:
-- [ ] Configuration file is read correctly.
-- [ ] Potential evaluation works for various functions.
-- [ ] Trajectory and energy data are saved to the correct CSV file.
-- [ ] The simulation handles "invalid" math (like `log(-1)`) without crashing.
+
+Before submitting, check that:
+
+- The configuration file is read correctly, including the potential expression and all its parameters.
+- The simulator works with more than one potential function.
+- The initial state and every subsequent state are written to the CSV file.
+- Position, velocity, and energy values are finite and physically reasonable.
+- Invalid expressions or mathematical evaluations are reported without crashing.
+- Total energy remains approximately constant for a time-independent conservative potential.
+- Reducing the time step gives results consistent with improved numerical accuracy.
 
 ---
 
@@ -161,7 +192,7 @@ Before submitting, ensure you have verified:
 
 We follow a professional Git workflow:
 
-1.  **Fork** the instructor's repository on GitHub.
+1.  **Fork** this repository on GitHub.
 2.  **Clone** your own fork to your computer.
 3.  **Implement** your code in `src/main.c`.
 4.  **Commit & Push** your changes:

@@ -12,12 +12,12 @@ The goal of this project is to implement a particle motion simulator using the *
 
 By completing the project, students will practice:
 
-- ✅ Translating Newton's equations of motion into a numerical simulation.
-- ✅ Implementing the Velocity Verlet integration method in C.
-- ✅ Reading simulation settings and mathematical expressions from a configuration file.
-- ✅ Using an instructor-provided software component through its header file.
-- ✅ Calculating kinetic, potential, and total mechanical energy.
-- ✅ Investigating numerical accuracy and energy conservation.
+- Translating Newton's equations of motion into a numerical simulation.
+- Implementing the Velocity Verlet integration method in C.
+- Reading simulation settings and mathematical expressions from a configuration file.
+- Using an instructor-provided software component through its header file.
+- Calculating kinetic, potential, and total mechanical energy.
+- Investigating numerical accuracy and energy conservation.
 
 The required physical model is a single particle with mass \(m\), position \((x,y)\), and velocity \((v_x,v_y)\). It moves in a two-dimensional, time-independent conservative potential \(U(x,y)\). The force is
 
@@ -66,7 +66,7 @@ The remaining starter code initializes the potential engine, runs the simulation
 ## 📝 3. Configuration & Potential Functions
 The simulation settings and potential expression are read from `resources/config.txt`. The file is divided into sections. Each setting is written as `name = value`. Blank lines and lines beginning with `#` are comments and should be ignored by the configuration reader. Keep the potential expression on a single line.
 
-### 📄 `config.txt` Format
+### 📄 3.1 `config.txt` Format
 The configuration is section-based using `name = value` syntax. Blank lines and lines starting with `#` are ignored.
 
 **Example Configuration:**
@@ -116,7 +116,7 @@ The variables `x` and `y` in the potential expression represent the particle's *
 Use consistent physical units throughout the configuration. The program does not perform unit conversion. The `output/` directory must exist before the program is run.
 
 
-### 🧪 Supported Math Syntax
+### 🧪 3.2 Supported Math Syntax
 
 The potential engine supports the following expression syntax:
 

@@ -61,9 +61,6 @@ The starter `src/main.c` provides the overall program structure. Students must c
 
 The remaining starter code initializes the potential engine, runs the simulation loop, and writes the results to a CSV file. You may add helper functions or additional source files when useful.
 
-
-
-
 ## 📝 3. Configuration & Potential Functions
 The simulation settings and potential expression are read from `resources/config.txt`. The file is divided into sections. Each setting is written as `name = value`. Blank lines and lines beginning with `#` are comments and should be ignored by the configuration reader. Keep the potential expression on a single line.
 
@@ -95,9 +92,9 @@ expression = 0.5*k*(x^2 + y^2)
 
 The example describes a two-dimensional isotropic harmonic oscillator:
 
-\[
+```math
 U(x,y)=\frac{1}{2}k(x^2+y^2).
-\]
+```
 
 The configuration entries have the following meanings:
 
@@ -152,23 +149,23 @@ Implement the **Velocity Verlet** method using a fixed time step \(\Delta t\). A
 
 First, update the position:
 
-\[
+```math
 \mathbf r_{n+1}=\mathbf r_n+\mathbf v_n\Delta t+
 \frac{1}{2}\mathbf a_n\Delta t^2.
-\]
+```
 
 Evaluate the force at the new position using the potential engine, then calculate the new acceleration:
 
-\[
+```math
 \mathbf a_{n+1}=\frac{\mathbf F(\mathbf r_{n+1})}{m}.
-\]
+```math
 
 Finally, update the velocity:
 
-\[
+```math
 \mathbf v_{n+1}=\mathbf v_n+
 \frac{1}{2}(\mathbf a_n+\mathbf a_{n+1})\Delta t.
-\]
+```
 
 Apply these equations to both the `x` and `y` components. Do not overwrite the old acceleration before it has been used to update the velocity.
 
@@ -182,9 +179,9 @@ step,time,x,y,vx,vy,kinetic_energy,potential_energy,total_energy
 
 The energies are
 
-\[
+```math
 K=\frac{1}{2}m(v_x^2+v_y^2),\qquad E=K+U(x,y).
-\]
+```
 
 You can use the CSV file to plot the trajectory and energy profiles with Python, MATLAB, Excel, or another tool. Implementing a graphical interface in C is not required.
 

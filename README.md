@@ -42,6 +42,7 @@ Particle_Dynamics_Sim/
 ---
 
 ## 📝 3. Configuration & Potential Functions
+The simulation settings and potential expression are read from `resources/config.txt`. The file is divided into sections. Each setting is written as `name = value`. Blank lines and lines beginning with `#` are comments and should be ignored by the configuration reader. Keep the potential expression on a single line.
 
 ### 📄 `config.txt` Format
 The configuration is section-based using `name = value` syntax. Blank lines and lines starting with `#` are ignored.
@@ -66,6 +67,54 @@ k = 2.0
 [potential]
 expression = 0.5*k*(x^2 + y^2)
 ```
+
+### Example configuration
+
+```ini
+# All physical quantities must use a consistent system of units.
+
+[simulation]
+mass = 1.0
+time_step = 0.001
+steps = 10000
+output_file = output/trajectory.csv
+
+[initial_conditions]
+x0 = 1.0
+y0 = 0.0
+vx0 = 0.0
+vy0 = 1.0
+
+[parameters]
+k = 2.0
+
+[potential]
+expression = 0.5*k*(x^2 + y^2)
+```
+
+The example describes a two-dimensional isotropic harmonic oscillator:
+
+\[
+U(x,y)=\frac{1}{2}k(x^2+y^2).
+\]
+
+The configuration entries have the following meanings:
+
+| Section | Setting | Meaning |
+|---|---|---|
+| `[simulation]` | `mass` | Particle mass; must be positive |
+| `[simulation]` | `time_step` | Fixed integration time step; must be positive |
+| `[simulation]` | `steps` | Number of integration steps |
+| `[simulation]` | `output_file` | Path of the CSV output file |
+| `[initial_conditions]` | `x0`, `y0` | Initial position |
+| `[initial_conditions]` | `vx0`, `vy0` | Initial velocity |
+| `[parameters]` | User-defined names | Numerical constants used in the potential expression |
+| `[potential]` | `expression` | Mathematical expression defining \(U(x,y)\) |
+
+The variables `x` and `y` in the potential expression represent the particle's **current** position. Names declared in `[parameters]` are constant parameters. For example, `k = 2.0` allows the expression to use `k`.
+
+Use consistent physical units throughout the configuration. The program does not perform unit conversion. The `output/` directory must exist before the program is run.
+
 
 ### 🧪 Supported Math Syntax
 

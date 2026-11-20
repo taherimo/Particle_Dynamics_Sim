@@ -1,0 +1,54 @@
+# Particle Dynamics Simulator configuration
+# Run the program from the project root directory.
+# All quantities must use a consistent system of units.
+
+[simulation]
+# Particle mass (must be positive)
+mass = 1.0
+
+# Fixed integration time step (must be positive)
+time_step = 0.001
+
+# Number of integration steps
+steps = 10000
+
+# CSV output path; the output/ directory must already exist
+output_file = output/trajectory.csv
+
+[initial_conditions]
+# Initial particle position
+x0 = 1.0
+y0 = 0.0
+
+# Initial particle velocity
+vx0 = 0.0
+vy0 = 1.0
+
+[parameters]
+# Parameters used by the potential expression below
+k = 2.0
+
+[potential]
+# Two-dimensional isotropic harmonic oscillator:
+# U(x,y) = (1/2) * k * (x^2 + y^2)
+# The parser calculates the force as the negative gradient of this expression.
+expression = 0.5*k*(x^2 + y^2)
+
+# Other example potentials (replace the active parameter and expression
+# definitions above when experimenting):
+#
+# Anisotropic harmonic oscillator:
+#   parameters: kx = 2.0, ky = 5.0
+#   expression = 0.5*kx*x^2 + 0.5*ky*y^2
+#
+# Double-well potential:
+#   parameters: a = 1.0, b = 1.5, k = 2.0
+#   expression = a*(x^2 - b^2)^2 + 0.5*k*y^2
+#
+# Periodic potential:
+#   parameters: V0 = 1.0
+#   expression = V0*(2 - cos(x) - cos(y))
+#
+# Softened central attractive potential:
+#   parameters: alpha = 1.0, epsilon = 0.1
+#   expression = -alpha/sqrt(x^2 + y^2 + epsilon^2)

@@ -1,6 +1,8 @@
 # 🌌 Particle Dynamics Simulator
 
-A C-based simulation project designed for undergraduate students of physics to explore **classical particle dynamics** through numerical integration.
+A C programming project designed for undergraduate students of physics to explore **classical particle dynamics** through numerical integration.
+
+The required project simulates **one particle moving in two-dimensional space** under a user-defined, time-independent potential energy function. The potential is entered as a mathematical expression in `resources/config.txt`; students do not need to modify the potential engine when they want to try a different supported potential.
 
 ---
 
@@ -104,12 +106,16 @@ The simulation must write a `.csv` file to the path specified in `config.txt`. E
 
 ## 🚀 6. Getting Started
 
+First, fork the this repository on GitHub. Then clone **your fork** (replace `YOUR_GITHUB_USERNAME` with your GitHub username):
+
 ### 📥 6.1 Get the Project
 ```bash
 # Recommended: Clone via Git
 git clone https://github.com/YOUR_USERNAME/Particle_Dynamics_Sim.git
 cd Particle_Dynamics_Sim
 ```
+
+You can also download your fork as a ZIP file and extract it. Keep the directory structure intact.
 
 ### 🛠 6.2 Compile & Run
 **Using GCC/Clang (Recommended):**
@@ -120,9 +126,11 @@ gcc -std=c11 -Wall -Wextra -Wpedantic -I./engine src/main.c engine/potential_eng
 ```
 
 **Using an IDE (VS Code, CLion, Code::Blocks):**
-1.  Add `src/main.c` and `engine/potential_engine.c` to your project.
-2.  Add `engine/` to your **Include Paths**.
-3.  **CRITICAL:** Set your IDE's **Working Directory** to the `Particle_Dynamics_Sim` folder so it can find `resources/config.txt`.
+1. Open the cloned project folder.
+2. Add `src/main.c` and `engine/potential_engine.c` to the build.
+3. Add `engine/` to the compiler's header/include search paths.
+4. Link the mathematical library (`libm`) if required by your compiler and platform.
+5. Set the program's working directory to the project root directory.
 
 ---
 

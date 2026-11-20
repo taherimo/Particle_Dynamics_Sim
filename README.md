@@ -158,7 +158,7 @@ Evaluate the force at the new position using the potential engine, then calculat
 
 ```math
 \mathbf a_{n+1}=\frac{\mathbf F(\mathbf r_{n+1})}{m}.
-```math
+```
 
 Finally, update the velocity:
 
